@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Form, Select, Button } from 'semantic-ui-react'
-
+import { LoginAuthedUser } from '../actions/authedUser';
 
 
 class Login extends Component {
