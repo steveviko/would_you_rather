@@ -3,14 +3,14 @@ import { receiveUsers,userAnswerQuestion } from './users';
 import { receiveQuestions,answerQuestion } from './questions';
 import { initAuthedUser } from './authedUser';
 
-const AUTHED = 'sarahedo'
+
 export function handleInitialData () {
   return(dispatch) => {
     return getInitialData()
       .then(({ users, questions }) => {
         dispatch(receiveUsers(users))
         dispatch(receiveQuestions(questions))
-        dispatch(initAuthedUser('sarahedo'))
+        dispatch(initAuthedUser(null))
       })
   }
 }

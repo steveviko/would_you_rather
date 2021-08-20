@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import AnswerQuestion from './AnswerQuestion';
+import NotFound from './NotFound';
 import ViewQuestion from './ViewQuestion';
 
 
@@ -18,8 +19,10 @@ class Quest extends Component {
       const isQuestionValid = Object.keys(questions).includes(questionId)
       const notAnswered = Object.keys(user.answers).includes(questionId);
      
-
-    }
+      if ( isQuestionValid === false) {
+        return <NotFound />
+        }
+    
 
    
     return (
@@ -33,6 +36,7 @@ class Quest extends Component {
         </div>
     )
   }
+}
 }
 
 function mapStateToProps({authedUser,users,questions}, ownProps) {

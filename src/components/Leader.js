@@ -3,7 +3,7 @@ import { Table } from 'semantic-ui-react'
 
 export default function Leader(props) {
   console.log(props)
-  const { id, name, avatarURL, numAnswers, numQuestions, total } = props.data
+  const {  name, avatarURL, numAnswers, total } = props.data
   return (
     <Table.Row>
       <Table.Cell>{name}</Table.Cell>

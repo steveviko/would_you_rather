@@ -18,7 +18,7 @@ class Login extends Component {
 
   render() {
     
-    const {userArray} = this.props;
+    // const {userArray} = this.props;
     const {value} = this.state;
 
     return (
@@ -34,7 +34,7 @@ class Login extends Component {
             <Form.Field>
               <Select placeholder='Select User'  onChange={this.handleChange} options={this.props.userArray} />
             </Form.Field>
-            <Form.Button  disabled={value === ''} type='submit'>Login</Form.Button>
+            <Form.Button  disabled={value === ''} type='submit' style={{background:"green",color:"white"}}>Login</Form.Button>
             </Segment>
         </Form>
 

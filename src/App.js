@@ -27,7 +27,10 @@ class App extends Component {
       <Route {...rest} render={(props) => (
         authedUser !== null 
         ? <Component {...props} />
-        : <Redirect to='/' />
+        : <Redirect to={{
+          pathname: '/',
+          state: { from: props.location }
+        }} />
       )} />
     )
 
@@ -39,10 +42,10 @@ class App extends Component {
           {authedUser !== null && <Nav /> }
             <Container text>
               <Switch>
-                    <Route path='/' exact component={Home} />
                     <PrivateRoute path='/leaderboard'  component={LeaderBoard} />
                     <PrivateRoute path='/new'  component={AskQuestion} />
                     <PrivateRoute path='/questions/:questionId'  component={Quest} />
+                    <Route path='/' exact component={Home} />
                     <Route  component={NotFound} />
               </Switch>
             </Container>

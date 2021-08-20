@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Form,  Radio, Grid, Header, Image } from 'semantic-ui-react'
-import { handleAnswerQuestion } from '../actions/shared';
+import { handleAnswerQuestion } from '../actions/common';
 
 
 class AnswerQuestion extends Component {
@@ -24,15 +24,15 @@ class AnswerQuestion extends Component {
   render() {
     
     const {value} = this.state
-    const { question, users, questionAuthor } = this.props
-    console.log('props: ',this.props)
+    const { question, questionAuthor } = this.props
+    
   
     return (
       <div className="ui text container">
         <Grid celled>
           <Grid.Row columns={1}>
             <Grid.Column>
-              <Header as='h3'>{questionAuthor.name} asks</Header>
+              <Header as='h3'>{questionAuthor.name} Asks</Header>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row columns={2}>
@@ -40,6 +40,7 @@ class AnswerQuestion extends Component {
               <Image src={questionAuthor.avatarURL} style={{borderRadius: '50%'}} />
             </Grid.Column>
             <Grid.Column width={12} verticalAlign='middle'>
+            <h2>Would You Rather...</h2>
               <Form style={{ textAlign: 'left' }} onSubmit={this.handleSubmit}>
                 <Form.Field>
                   <Radio
