@@ -1,6 +1,6 @@
-import { getInitialData } from '../utils/helper';
-import { receiveUsers } from './users';
-import { receiveQuestions } from './questions';
+import { getInitialData,saveQuestionAnswer } from '../utils/helper';
+import { receiveUsers,userAnswerQuestion } from './users';
+import { receiveQuestions,answerQuestion } from './questions';
 import { initAuthedUser } from './authedUser';
 
 const AUTHED = 'sarahedo'
@@ -10,7 +10,20 @@ export function handleInitialData () {
       .then(({ users, questions }) => {
         dispatch(receiveUsers(users))
         dispatch(receiveQuestions(questions))
-        dispatch(initAuthedUser(AUTHED))
+        dispatch(initAuthedUser('sarahedo'))
       })
+  }
+}
+
+export function handleAnswerQuestion (info) {
+  return(dispatch) => {
+    return saveQuestionAnswer(info)
+    .then(() => {
+      dispatch(userAnswerQuestion(info))
+      dispatch(answerQuestion(info))
+    })
+    .catch((e) => {
+      alert('An error occured during the answering of this question. Try again.')
+    })
   }
 }
