@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, Link,withRouter } from 'react-router-dom'
 import { Menu } from 'semantic-ui-react'
 import { initAuthedUser } from '../actions/authedUser';
 
@@ -19,10 +19,10 @@ class Nav extends Component {
       
       <div className='container'>
         <Menu pointing secondary>
-          <Menu.Item  activeClassName='active' as={NavLink} exact to='/'>
+          <Menu.Item  as={NavLink} activeClassName='active'  exact to='/'>
             Home
           </Menu.Item>
-          <Menu.Item activeClassName='active' as={NavLink} to='/leaderboard' >
+          <Menu.Item as={NavLink} activeClassName='active'  exact to='/leaderboard' >
             LeaderBoard
           </Menu.Item>
           <Menu.Menu position='right'>
@@ -43,4 +43,4 @@ function mapStateToProps({ authedUser}) {
   }
 }
 
-export default connect(mapStateToProps)(Nav)
+export default withRouter(connect(mapStateToProps)(Nav))

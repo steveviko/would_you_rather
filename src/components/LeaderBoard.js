@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
 import Leader from './Leader';
 import { Table } from 'semantic-ui-react'
 
@@ -8,7 +9,7 @@ import { Table } from 'semantic-ui-react'
     const { leaderBData } = this.props;
     return (
       <div className='container'>
-      <Table celled padded>
+      <Table celled padded unstackable>
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell>Users</Table.HeaderCell>

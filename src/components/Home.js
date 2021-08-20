@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Login from './Login';
-import Questions from '../actions/Questions';
+import Questions from './Questions';
 
 class Home extends Component {
 
   render() {
     const { authedUser } = this.props
-    console.log('props', authedUser)
+    // console.log('props', authedUser)
     return (
-      <div>
+      <div className='container'>
         
         {authedUser === null  ? (
           <Login />
@@ -25,4 +26,4 @@ function mapStateToProps({authedUser}) {
  return  {authedUser} 
 }
 
-export default connect(mapStateToProps)(Home)
+export default withRouter(connect(mapStateToProps)(Home))
