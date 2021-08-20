@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import 'semantic-ui-css/semantic.min.css';
 import './App.scss';
 import { connect } from 'react-redux'
 import { handleInitialData } from './actions/common';
-import { BrowserRouter as Router, Route,Switch, withRouter } from 'react-router-dom'
+import { Container } from 'semantic-ui-react';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import Home from './components/Home';
 import Nav from './components/Nav';
 import LeaderBoard from './components/LeaderBoard';
@@ -19,23 +20,46 @@ class App extends Component {
     this.props.dispatch(handleInitialData())
   }
 
-  render() {    
+  render() {   
+    
+    const { authedUser } = this.props
+    const PrivateRoute = ( {component: Component, ...rest}) => (
+      <Route {...rest} render={(props) => (
+        authedUser !== null 
+        ? <Component {...props} />
+        : <Redirect to={{
+          pathname: '/',
+          state: { from: props.location }
+        }} />
+      )} />
+    )
+
     return ( 
 
       <Router>
-      <div className="App">
-      <Nav />
-      <Switch>
-            <Route path='/' exact component={Home} />
-            <Route path='/leaderboard'  component={LeaderBoard} />
-            <Route path='/new'  component={AskQuestion} />
-            <Route path='/questions/:questionId'  component={Quest} />
-            <Route  component={NotFound} />
-         </Switch>
-      </div>
+        <Fragment>
+          <div className="App ui text container">
+          {authedUser !== null && <Nav /> }
+            <Container text>
+              <Switch>
+                    <PrivateRoute path='/leaderboard'  component={LeaderBoard} />
+                    <PrivateRoute path='/new'  component={AskQuestion} />
+                    <PrivateRoute path='/questions/:questionId'  component={Quest} />
+                    <Route path='/' exact component={Home} />
+                    <Route  component={NotFound} />
+              </Switch>
+            </Container>
+          </div>
+        </Fragment>
     </Router>
      );
   }
 }
  
-export default connect()(App);
+function mapStateToProps({authedUser}) {
+  return {
+    authedUser
+  }
+}
+
+export default connect(mapStateToProps)(App);

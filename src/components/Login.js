@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { Form, Select, Button } from 'semantic-ui-react'
+import { Form, Select, Grid, Header, Segment } from 'semantic-ui-react'
 import { LoginAuthedUser } from '../actions/authedUser';
 
 
@@ -18,20 +18,28 @@ class Login extends Component {
 
   render() {
     
-    const {userArray} = this.props;
+    // const {userArray} = this.props;
     const {value} = this.state;
 
     return (
-      <div>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Field>
-            <Select placeholder='Select User'  onChange={this.handleChange} options={this.props.userArray} />
-          </Form.Field>
-          <Form.Button  disabled={value === ''} type='submit'>Login</Form.Button>
+     
+        <Grid verticalAlign='middle' style={{ height: '100vh', justifyContent: 'center' }}>
+        <Grid.Column style={{ maxWidth: 500 }}>
+        <Form size='large' onSubmit={this.handleSubmit}>
+          <Segment>
+            <Header as='h2'>
+            Would You Rather App
+            </Header>
+            <p>Sign In</p>
+            <Form.Field>
+              <Select placeholder='Select User'  onChange={this.handleChange} options={this.props.userArray} />
+            </Form.Field>
+            <Form.Button  disabled={value === ''} type='submit' style={{background:"green",color:"white"}}>Login</Form.Button>
+            </Segment>
         </Form>
 
-        
-      </div>
+        </Grid.Column>
+      </Grid>
     )
   }
 }

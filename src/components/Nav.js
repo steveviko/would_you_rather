@@ -17,17 +17,24 @@ class Nav extends Component {
   render() {
     return (
       
-      <div className='container'>
+      <div className='container' style={{background:"#21ba45", color:"white"}}>
         <Menu pointing secondary>
           <Menu.Item  as={NavLink} activeClassName='active'  exact to='/'>
             Home
           </Menu.Item>
-          <Menu.Item as={NavLink} activeClassName='active'  exact to='/leaderboard' >
+          <Menu.Item as={NavLink} activeClassName='active'   to='/leaderboard' >
             LeaderBoard
           </Menu.Item>
+          <Menu.Item
+            as={NavLink}
+            activeClassName='active' 
+            to='/new'
+            >
+            New Question
+          </Menu.Item>   
           <Menu.Menu position='right'>
           <Menu.Item as={Link} to='/'>
-            {this.props.authedUser === null  ? <span>Log in</span> : <span onClick={this.logOut}>Log out</span>}
+            {this.props.authedUser === null  ? <span>Log in</span> : <span onClick={this.logOut}>Log out  <span style={{color:"black",fontSize:20}}>|</span>{this.props.users[this.props.authedUser].name}</span>}
           </Menu.Item>
           </Menu.Menu>
         </Menu>
@@ -37,9 +44,10 @@ class Nav extends Component {
   }
 }
 
-function mapStateToProps({ authedUser}) {
+function mapStateToProps({ authedUser,users}) {
   return {
-    authedUser
+    authedUser,
+    users
   }
 }
 
