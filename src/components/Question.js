@@ -13,12 +13,12 @@ class Question extends Component {
     return (
       <div>
       <Grid celled>
-        <Grid.Row columns={1}>
-              <Grid.Column>
-              <Header as='h3'>{users[author].name}  Asks:</Header>
-              </Grid.Column>
-              </Grid.Row>
-            <Grid.Row columns={2} divided>
+          <Grid.Row columns={1}>
+            <Grid.Column>
+              <Header as='h3'>{users[author].name} Asks:</Header>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row columns={2} divided>
             <Grid.Column width={4} verticalAlign='middle'>
                 <Image style={{borderRadius: '50%'}} src={users[author].avatarURL}/>
             </Grid.Column>

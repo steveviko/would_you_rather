@@ -12,38 +12,35 @@ class Quest extends Component {
 
   render() {
     
-    if (this.props.authedUser === null) {
-      
-    } else {
-      const {user, questionId, questions, questionAuthor} = this.props
-      const isQuestionValid = Object.keys(questions).includes(questionId)
-      const notAnswered = Object.keys(user.answers).includes(questionId);
-     
-      if ( isQuestionValid === false) {
-        return <NotFound />
-        }
     
-
-   
-    return (
      
-      <div>        
-         {notAnswered ? (
-           <ViewQuestion question={questions[questionId]} authedUser={user} author={questionAuthor} />
-         ) : (
-           <AnswerQuestion  qid={questionId} />
-         )}
-        </div>
+      if ( this.props.isQuestionValid === false) {
+        return <NotFound />
+        
+      }
+    const {user, questionId, questions, questionAuthor} = this.props
+    const notAnswered = Object.keys(user.answers).includes(questionId);
+    return (
+      <div>
+        {notAnswered ? (
+          <ViewQuestion question={questions[questionId]} authedUser={user} author={questionAuthor} />
+        ) : (
+          <AnswerQuestion  qid={questionId} />
+        )}
+      </div>
     )
+   
+   
   }
 }
-}
+
 
 function mapStateToProps({authedUser,users,questions}, ownProps) {
   const {questionId} = ownProps.match.params
+  const isQuestionValid = Object.keys(questions).includes(questionId)
   const user = users[authedUser]
   const question = questions[questionId]
-  const questionAuthor = users[question.author]
+  const questionAuthor = isQuestionValid && users[question.author]
 
   
   return {
@@ -51,7 +48,8 @@ function mapStateToProps({authedUser,users,questions}, ownProps) {
     user,
     questionId,
     questions,
-    questionAuthor
+    questionAuthor,
+    isQuestionValid
   }
 }
 

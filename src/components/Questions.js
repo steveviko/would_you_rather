@@ -4,23 +4,11 @@ import { Tab, Item } from 'semantic-ui-react';
 import Question from './Question';
 
 class Questions extends Component {
-  state = {
-    showUnanswered: true
-  }
-  toggleDisplay = () => {
-    this.setState((prevState) => ({
-      showUnanswered: !prevState.showUnanswered
-    }))
-  }
+ 
   render() {
 
-    const {questionIds, authedUser,answeredQuestions, unAnsweredQuestions } = this.props
-    const { showUnanswered } = this.state
-    // const btnText = showUnanswered ? 'Answered' : 'Unanswered';
-    const questionList = showUnanswered
-    ? questionIds.filter(id => authedUser.answers[id] === undefined)
-    : questionIds.filter(id => authedUser.answers[id] !== undefined);
-
+    const {answeredQuestions, unAnsweredQuestions } = this.props
+  
     const panes = [
       { menuItem: 'Unaswered',
        render: () => (<Tab.Pane>
@@ -42,11 +30,6 @@ class Questions extends Component {
     return (
       <div className='container'>
         <Tab panes={panes} />
-        {questionList.map( question => {
-          return <Question key={question} id={question} />
-        })}
-
-
        
       </div>
     )
@@ -66,8 +49,7 @@ function mapStateToProps({questions, authedUser, users }) {
     .sort((a,b) => questions[b].timestamp - questions[a].timestamp)
 
   return {
-    authedUser: users[authedUser],
-    questionIds: Object.keys(questions),
+    
     answeredQuestions,
     unAnsweredQuestions
 

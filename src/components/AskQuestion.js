@@ -28,7 +28,7 @@ class AskQuestion extends Component {
   }
   render() {
     const IsDisabled = this.state.optionOneText !== '' && this.state.optionTwoText !== '';
-    console.log('ask answer props: ',this.props)
+    
     return (
       
       <div className='ui text container'>
