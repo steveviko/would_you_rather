@@ -1,8 +1,8 @@
 let users = {
   sarahedo: {
     id: 'sarahedo',
-    name: 'Sarah Edo',
-    avatarURL: ,
+    name: 'Sarah Jay',
+    avatarURL: "https://randomuser.me/api/portraits/women/65.jpg" ,
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -13,8 +13,8 @@ let users = {
   },
   tylermcginnis: {
     id: 'tylermcginnis',
-    name: 'Tyler McGinnis',
-    avatarURL: ,
+    name: 'Tyler Steven',
+    avatarURL: "https://randomuser.me/api/portraits/men/90.jpg",
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -23,8 +23,8 @@ let users = {
   },
   johndoe: {
     id: 'johndoe',
-    name: 'John Doe',
-    avatarURL: ,
+    name: 'Ken Salah',
+    avatarURL: "https://randomuser.me/api/portraits/men/83.jpg",
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
@@ -41,11 +41,11 @@ let questions = {
     timestamp: 1467166872634,
     optionOne: {
       votes: ['sarahedo'],
-      text: 'have horrible short term memory',
+      text: 'have the most beautiful summer break',
     },
     optionTwo: {
       votes: [],
-      text: 'have horrible long term memory'
+      text: 'have the most horrible summer break'
     }
   },
   "6ni6ok3ym7mf1p33lnez": {
@@ -54,11 +54,11 @@ let questions = {
     timestamp: 1468479767190,
     optionOne: {
       votes: [],
-      text: 'become a superhero',
+      text: 'Visit Africa',
     },
     optionTwo: {
       votes: ['johndoe', 'sarahedo'],
-      text: 'become a supervillain'
+      text: 'Visit Asia'
     }
   },
   "am8ehyc8byjqgar0jgpub9": {
@@ -67,11 +67,11 @@ let questions = {
     timestamp: 1488579767190,
     optionOne: {
       votes: [],
-      text: 'be telekinetic',
+      text: 'GOAT is Messi',
     },
     optionTwo: {
       votes: ['sarahedo'],
-      text: 'be telepathic'
+      text: 'GOAT is Ronaldo'
     }
   },
   "loxhs1bqm25b708cmbf3g": {
