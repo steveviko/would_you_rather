@@ -1,5 +1,6 @@
 import { saveQuestion } from '../utils/helper';
 import  {addQuestionToUser} from './users';
+import { showLoading, hideLoading } from 'react-redux-loading-bar'
 
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
@@ -28,15 +29,16 @@ export function answerQuestion ( { authedUser, qid, answer} ) {
 
 export function handleAskQuestion (question) {
   return (dispatch) => {
+    dispatch(showLoading())
     return saveQuestion( question )
     .then((res) => {
-      console.log(res)
+      
       dispatch(addQuestionToQuestions(res))
       dispatch(addQuestionToUser(res))
       
 
     })
-   
+    .then(() => dispatch(hideLoading()))
   }
 }
 

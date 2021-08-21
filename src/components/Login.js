@@ -1,25 +1,40 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Form, Select, Grid, Header, Segment } from 'semantic-ui-react'
-import { LoginAuthedUser } from '../actions/authedUser';
+import { initAuthedUser } from '../actions/authedUser';
+import { Redirect } from 'react-router-dom'
+import { TEMP_ID } from '../actions/common';
 
 
 class Login extends Component { 
-  state = {value : ''}
+  state = {
+
+    value : '',
+    redirectToReferrer: false
+  }
   handleChange = (e, { value }) => this.setState({ value })
   handleSubmit = (e) => {
     e.preventDefault();
     const { value } = this.state;
-    this.props.dispatch(LoginAuthedUser(value));
-    console.log(value);
+    this.props.dispatch(initAuthedUser(value));
+    this.setState({ redirectToReferrer: true })
 
   }
 
 
   render() {
     
-    // const {userArray} = this.props;
-    const {value} = this.state;
+    const {userArray, authedUser} = this.props;
+    const {value, redirectToReferrer} = this.state;
+    const { from } = this.props.location.state || { from: { pathname: '/' } }
+
+    if (redirectToReferrer === true) {
+      return <Redirect to={from} />
+    }
+
+    if (authedUser !== TEMP_ID) {
+      return <Redirect to='/' />
+    }
 
     return (
      
@@ -28,11 +43,11 @@ class Login extends Component {
         <Form size='large' onSubmit={this.handleSubmit}>
           <Segment>
             <Header as='h2'>
-            Would You Rather App
+            Would You Rather Web App
             </Header>
-            <p>Sign In</p>
+            <p style={{font:'bolder', textTransform:"uppercase"}}>Sign In</p>
             <Form.Field>
-              <Select placeholder='Select User'  onChange={this.handleChange} options={this.props.userArray} />
+              <Select placeholder='Select User'  onChange={this.handleChange} options={userArray} />
             </Form.Field>
             <Form.Button  disabled={value === ''} type='submit' style={{background:"green",color:"white"}}>Login</Form.Button>
             </Segment>

@@ -10,7 +10,7 @@ export default function ViewQuestion(props) {
   const optionTwoLength = question.optionTwo.votes.length
   const total = optionOneLength + optionTwoLength;
   const userVote = authedUser.answers[question.id]
-  console.log('vq props: ',userVote)
+  
 
   return (
     <div className='ui text container'>

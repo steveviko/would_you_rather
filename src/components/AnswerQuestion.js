@@ -13,11 +13,11 @@ class AnswerQuestion extends Component {
     e.preventDefault()
     
     const { dispatch, qid, authedUser } = this.props
-    const question  = this.state.value
+    const answer   = this.state.value
     dispatch(handleAnswerQuestion({
       authedUser, 
       qid,
-      answer: question
+      answer
     }))
   }
 
@@ -78,8 +78,7 @@ function mapStateToProps({users, questions, authedUser },ownProps) {
   const questionAuthor = users[question.author]
   return {
     question,
-    authedUser,
-    users,
+    authedUser,    
     questionAuthor
   }
 }
