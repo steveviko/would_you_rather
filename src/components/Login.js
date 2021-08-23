@@ -9,7 +9,7 @@ import { TEMP_ID } from '../actions/common';
 class Login extends Component { 
   state = {
 
-    value : '',
+    value : "",
     redirectToReferrer: false
   }
   handleChange = (e, { value }) => this.setState({ value })

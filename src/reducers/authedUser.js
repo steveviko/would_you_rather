@@ -1,7 +1,7 @@
 import { INIT_AUTHED_USER } from "../actions/authedUser";
 
 
-export default function authedUser(state = null, action){
+export  function authedUser(state = null, action){
   switch (action.type) {
   case INIT_AUTHED_USER :
     return action.id
@@ -10,3 +10,6 @@ export default function authedUser(state = null, action){
     return state
   }
 }
+
+
+export default authedUser

@@ -2,10 +2,17 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Form,  Radio, Grid, Header, Image } from 'semantic-ui-react'
 import { handleAnswerQuestion } from '../actions/common';
+import { Redirect } from 'react-router-dom'
+// import ViewQuestion from './ViewQuestion';
 
 
 class AnswerQuestion extends Component {
-  state = {value: null}
+  state = {
+    value: null,
+    redirectToReferrer: false
+ 
+    
+  }
 
 
   handleChange = (e, { value }) => this.setState({ value })
@@ -19,13 +26,24 @@ class AnswerQuestion extends Component {
       qid,
       answer
     }))
+    this.setState({ redirectToReferrer: true})
+    
   }
 
   render() {
     
-    const {value} = this.state
-    const { question, questionAuthor } = this.props
     
+    const {value, redirectToReferrer} = this.state;
+    const { question, questionAuthor } = this.props
+  
+    
+   
+    if (redirectToReferrer === true) {
+      return <Redirect to='/'/>
+      
+      
+      
+    }
   
     return (
       <div className="ui text container">
@@ -40,7 +58,7 @@ class AnswerQuestion extends Component {
               <Image src={questionAuthor.avatarURL} style={{borderRadius: '50%'}} />
             </Grid.Column>
             <Grid.Column width={12} verticalAlign='middle'>
-            <h2>Would You Rather...</h2>
+            <h2>Would You Rather</h2>
               <Form style={{ textAlign: 'left' }} onSubmit={this.handleSubmit}>
                 <Form.Field>
                   <Radio

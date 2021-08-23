@@ -7,7 +7,7 @@ export const TEMP_ID = 'tempId'
 
 
 export function handleInitialData () {
-  return(dispatch) => {
+  return (dispatch) => {
     dispatch(showLoading())
     return getInitialData()
       .then(({ users, questions }) => {
@@ -20,15 +20,15 @@ export function handleInitialData () {
 }
 
 export function handleAnswerQuestion (info) {
-  return(dispatch) => {
+  return dispatch => {
     dispatch(showLoading())
     return saveQuestionAnswer(info)
     .then(() => {
       dispatch(userAnswerQuestion(info))
       dispatch(answerQuestion(info))
     })
-    .then(()=> dispatch(hideLoading()))
-    .catch((e) => {
+    .then(()=> dispatch(hideLoading()))    
+    .catch(e => {
       alert('An error occured during the answering of this question. Try again.')
     })
   }
