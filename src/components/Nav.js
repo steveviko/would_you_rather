@@ -28,7 +28,7 @@ class Nav extends Component {
           <Menu.Item
             as={NavLink}
             activeClassName='active' 
-            to='/new.'
+            to='/add'
             >
             New Question
           </Menu.Item>   
