@@ -12,6 +12,7 @@ import { Table } from 'semantic-ui-react'
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell>Users</Table.HeaderCell>
+          <Table.HeaderCell>Image</Table.HeaderCell>
           <Table.HeaderCell>Questions</Table.HeaderCell>
           <Table.HeaderCell>Answers</Table.HeaderCell>
           <Table.HeaderCell>Totals</Table.HeaderCell>
