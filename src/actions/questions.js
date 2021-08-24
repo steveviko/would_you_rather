@@ -34,8 +34,7 @@ export function handleAskQuestion (question) {
     .then((res) => {
       
       dispatch(addQuestionToQuestions(res))
-      dispatch(addQuestionToUser(res))
-      
+      dispatch(addQuestionToUser(res))   
 
     })
     .then(() => dispatch(hideLoading()))
