@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Form,  Radio, Grid, Header, Image } from 'semantic-ui-react'
 import { handleAnswerQuestion } from '../actions/common';
-import { Redirect } from 'react-router-dom'
-// import ViewQuestion from './ViewQuestion';
+
+
 
 
 class AnswerQuestion extends Component {
   state = {
     value: null,
-    redirectToReferrer: false
+    
  
     
   }
@@ -26,24 +26,19 @@ class AnswerQuestion extends Component {
       qid,
       answer
     }))
-    this.setState({ redirectToReferrer: true})
+  
     
   }
 
   render() {
     
     
-    const {value, redirectToReferrer} = this.state;
+    const {value} = this.state;
     const { question, questionAuthor } = this.props
   
     
    
-    if (redirectToReferrer === true) {
-      return <Redirect to='/'/>
-      
-      
-      
-    }
+    
   
     return (
       <div className="ui text container">

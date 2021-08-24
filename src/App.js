@@ -16,7 +16,7 @@ import Quest from './components/Quest';
 
 
 class App extends Component {
-  state = {  }
+ 
 
   componentDidMount(){
     this.props.dispatch(handleInitialData())

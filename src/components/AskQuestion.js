@@ -7,8 +7,8 @@ import { withRouter } from 'react-router-dom';
 class AskQuestion extends Component {
 
   state = {
-    optionOneText: "",
-    optionTwoText: ""
+    optionOneText: '',
+    optionTwoText: ''
   }
 
   handleChange = (e) => {

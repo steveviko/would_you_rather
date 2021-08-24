@@ -26,6 +26,7 @@ export function handleAnswerQuestion (info) {
     .then(() => {
       dispatch(userAnswerQuestion(info))
       dispatch(answerQuestion(info))
+      
     })
     .then(()=> dispatch(hideLoading()))    
     .catch(e => {

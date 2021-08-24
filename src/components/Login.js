@@ -35,7 +35,7 @@ class Login extends Component {
     if (authedUser !== TEMP_ID) {
       return <Redirect to='/' />
     }
-
+    
     return (
      
         <Grid verticalAlign='middle' style={{ height: '100vh', justifyContent: 'center' }}>
