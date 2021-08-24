@@ -4,8 +4,15 @@ import { Form,  Radio, Grid, Header, Image } from 'semantic-ui-react'
 import { handleAnswerQuestion } from '../actions/common';
 
 
+
+
 class AnswerQuestion extends Component {
-  state = {value: null}
+  state = {
+    value: null,
+    
+ 
+    
+  }
 
 
   handleChange = (e, { value }) => this.setState({ value })
@@ -19,12 +26,18 @@ class AnswerQuestion extends Component {
       qid,
       answer
     }))
+  
+    
   }
 
   render() {
     
-    const {value} = this.state
+    
+    const {value} = this.state;
     const { question, questionAuthor } = this.props
+  
+    
+   
     
   
     return (
@@ -40,7 +53,7 @@ class AnswerQuestion extends Component {
               <Image src={questionAuthor.avatarURL} style={{borderRadius: '50%'}} />
             </Grid.Column>
             <Grid.Column width={12} verticalAlign='middle'>
-            <h2>Would You Rather...</h2>
+            <h2>Would You Rather</h2>
               <Form style={{ textAlign: 'left' }} onSubmit={this.handleSubmit}>
                 <Form.Field>
                   <Radio

@@ -9,7 +9,7 @@ import { TEMP_ID } from '../actions/common';
 class Login extends Component { 
   state = {
 
-    value : '',
+    value : "",
     redirectToReferrer: false
   }
   handleChange = (e, { value }) => this.setState({ value })
@@ -35,7 +35,7 @@ class Login extends Component {
     if (authedUser !== TEMP_ID) {
       return <Redirect to='/' />
     }
-
+    
     return (
      
         <Grid verticalAlign='middle' style={{ height: '100vh', justifyContent: 'center' }}>

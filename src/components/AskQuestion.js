@@ -5,10 +5,12 @@ import { handleAskQuestion } from '../actions/questions';
 import { withRouter } from 'react-router-dom';
 
 class AskQuestion extends Component {
-  state={
+
+  state = {
     optionOneText: '',
     optionTwoText: ''
   }
+
   handleChange = (e) => {
     const option = e.target.name;
     this.setState(({
@@ -19,8 +21,7 @@ class AskQuestion extends Component {
     e.preventDefault();
     const {dispatch, authedUser, history} = this.props
     const author = authedUser;
-    const {optionOneText, optionTwoText} = this.state;
-    console.log('au: ',author)
+    const {optionOneText, optionTwoText} = this.state;    
     dispatch(handleAskQuestion({optionOneText,optionTwoText,author}))
     .then(() => {history.push('/')})
 
