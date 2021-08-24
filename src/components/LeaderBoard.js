@@ -11,7 +11,8 @@ import { Table } from 'semantic-ui-react'
       <Table celled padded unstackable>
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell>Users</Table.HeaderCell>
+          <Table.HeaderCell>User's Name</Table.HeaderCell>
+          <Table.HeaderCell>Image</Table.HeaderCell>
           <Table.HeaderCell>Questions</Table.HeaderCell>
           <Table.HeaderCell>Answers</Table.HeaderCell>
           <Table.HeaderCell>Totals</Table.HeaderCell>

@@ -49,7 +49,7 @@ class App extends Component {
             :
               <Switch>
                     <PrivateRoute path='/leaderboard'  component={LeaderBoard} />
-                    <PrivateRoute path='/new'  component={AskQuestion} />
+                    <PrivateRoute path='/add'  component={AskQuestion} />
                     <PrivateRoute path='/questions/:questionId'  component={Quest} />
                     <PrivateRoute path='/' exact component={Questions} />
                     <Route path='/login' component={Login} />
