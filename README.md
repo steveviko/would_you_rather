@@ -1,8 +1,6 @@
 # Would You Rather App
 
-###### This is a voting app for Udacity's React & Redux course.
-
-Would You Rather  web app is built with react that lets a user play the “Would You Rather?” game. The game goes like this: A user is asked a question in the form: “Would you rather [option A] or [option B] ?”. Answering "neither" or "both" is against the rules.
+This is a voting app for Udacity's React & Redux course. Would You Rather  web app is built with react that lets a user play the “Would You Rather?” game. The game goes like this: A user is asked a question in the form: “Would you rather [option A] or [option B] ?”. Answering "neither" or "both" is against the rules.
 
 In this app, users will be able to answer questions, see which questions they haven’t answered, see how other people have voted, post questions, and see the ranking of users on the leaderboard.
 
@@ -36,10 +34,7 @@ Project uses a mock API to store data. So the data will be cleared when the page
 
 ## Data
 
-There are two types of objects stored in our database:
 
-* Users
-* Questions
 
 ## Create React App
 
